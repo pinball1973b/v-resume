@@ -17,7 +17,7 @@
         v-if="drawerView"
       >
         <ul>
-          <li v-for="list in lists">
+          <li v-for="list in lists" :key="list.name">
             <router-link :to="{ path: list.url }">{{list.name}}</router-link>
             <!--
             <a :href="list.url">

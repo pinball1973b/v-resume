@@ -4,6 +4,7 @@
       <article
         class="grid_box"
         v-for="grid in referenceList"
+        :key="grid.box1_title"
       >
         <div
           class="box_wrap"
@@ -124,12 +125,12 @@
 </template>
 
 <script>
-import referenceList from '../../../../static/js_src/reference.js'
+import * as referenceListJson from '../../../../static/js_src/reference.json'
 export default {
   name: 'reference',
   data () {
     return {
-      referenceList: referenceList,
+      referenceList: null,
       box: {
         image: '',
         style: '',
@@ -142,6 +143,9 @@ export default {
       popBox: false,
       textSlide: true
     }
+  },
+  mounted () {
+    this.referenceList = referenceListJson
   },
   methods: {
     gridOpen: function (event) {

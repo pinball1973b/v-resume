@@ -12,12 +12,7 @@
         </div>
       </div>
     </main>
-    <!--あとでリファクタ -->
-    <div v-if="messageBox" class="message-wrap">
-      <div class="message-inner">
-        <p>{{message}}</p>
-      </div>
-    </div>
+    <message-box  v-if="messageBox" :message="message" />
     <footerApp address="pinball1973b@gmail.com" />
   </div>
 </template>
@@ -27,6 +22,7 @@ import headerApp from '@/components/common/page/headerApp'
 import footerApp from '@/components/common/page/footerApp'
 import drawer from '@/components/common/page/drawer'
 import firebase from 'firebase'
+import messageBox from '@/components/common/parts/message-box'
 
 export default {
   name: 'index',
