@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <header>
-      <h1>{{ title }}</h1>
+      <h1>K.Obara Resume / {{ title }}</h1>
     </header>
   </div>
 </template>

@@ -2,7 +2,7 @@
   <div class="basic">
     <div class="career-list">
       <h3>基本情報</h3>
-      <dl v-for="list in basicList">
+      <dl v-for="list in basicList" :key="list.overview">
         <dt
           class="career-dt"
         >
@@ -20,12 +20,12 @@
 </template>
 
 <script>
-import basicList from '../../../../static/js_src/basic.js'
+import * as basicListJson from '../../../../static/js_src/basic.json'
 export default {
   name: 'resume',
   data () {
     return {
-      basicList: basicList
+      basicList: basicListJson
     }
   }
 }
@@ -49,6 +49,7 @@ export default {
     display: flex;
     .career-dd {
       padding: 10px;
+      width: calc( 100% - 150px );
     }
     .career-dt {
       width: 150px;

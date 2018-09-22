@@ -13,11 +13,7 @@
         </div>
       </div>
     </main>
-    <div v-if="messageBox" class="message-wrap">
-      <div class="message-inner">
-        <p>{{message}}</p>
-      </div>
-    </div>
+    <message-box  v-if="messageBox" :message="message" />
     <footerApp address="pinball1973b@gmail.com" />
   </div>
 </template>
@@ -29,6 +25,7 @@ import basic from '@/components/common/page/basic'
 import resume from '@/components/common/page/resume'
 import skill from '@/components/common/page/skill'
 import drawer from '@/components/common/page/drawer'
+import messageBox from '@/components/common/parts/message-box'
 
 export default {
   name: 'profile',
@@ -38,7 +35,8 @@ export default {
     basic,
     resume,
     skill,
-    drawer
+    drawer,
+    messageBox
   },
 
   data () {
@@ -85,23 +83,6 @@ main {
   }
 }
 
-.message-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 45px;
-  z-index: 3;
-  .message-inner {
-    font-size: .9rem;
-    margin: 0 auto;
-    width: 500px;
-    background: rgba(255,255,255,.6);
-    text-align: center;
-    color: #fff;
-    padding: 5px;
-  }
-}
 
 @keyframes fade{
   0% {

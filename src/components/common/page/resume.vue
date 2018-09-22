@@ -2,7 +2,7 @@
   <div class="resume">
     <div class="career-list">
       <h3>職務経歴</h3>
-      <dl v-for="list in careerLists">
+      <dl v-for="list in careerLists" :key="list.corp">
         <dt
           class="career-dt"
           @click="accordion"
@@ -24,13 +24,16 @@
 </template>
 
 <script>
-import resumeList from '../../../../static/js_src/resume.js'
+import * as resumeListJson from '../../../../static/js_src/resume.json'
 export default {
   name: 'resume',
   data () {
     return {
-      careerLists: resumeList
+      careerLists: null
     }
+  },
+  mounted () {
+    this.careerLists = resumeListJson
   },
   methods: {
     accordion: function (event) {

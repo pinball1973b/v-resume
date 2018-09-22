@@ -2,7 +2,7 @@
   <div class="skill">
     <div class="career-list">
       <h3>スキル</h3>
-      <dl v-for="list in skillList">
+      <dl v-for="list in skillList" :key="list.overview">
         <dt
           class="career-dt"
         >
@@ -22,13 +22,16 @@
 </template>
 
 <script>
-import skillList from '../../../../static/js_src/skill.js'
+import * as skillListJson from '../../../../static/js_src/skill.json'
 export default {
   name: 'skill',
   data () {
     return {
-      skillList: skillList
+      skillList: null
     }
+  },
+  mounted () {
+    this.skillList = skillListJson
   }
 }
 </script>
